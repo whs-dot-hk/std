@@ -128,7 +128,7 @@ in
           if usesKustomize
           then "--kustomize"
           else "--recursive --filename"
-        } "$manifest_path/";
+        } "$manifest_path";
         }
 
         # GitHub case
@@ -172,7 +172,7 @@ in
           if usesKustomize
           then "--kustomize"
           else "--recursive --filename"
-        } "$manifest_path/";
+        } "$manifest_path";
 
           return $?;
         }
@@ -182,7 +182,7 @@ in
           if usesKustomize
           then "--kustomize"
           else "--recursive --filename"
-        } "$manifest_path/";
+        } "$manifest_path";
         }
 
         diff
