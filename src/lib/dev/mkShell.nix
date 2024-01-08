@@ -55,6 +55,6 @@ in
           };
       };
   in
-    devshell.legacyPackages.mkShell {
+    devshell.packages.mkShell {
       imports = [configuration nixagoModule];
     }
