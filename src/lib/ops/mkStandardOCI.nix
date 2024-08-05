@@ -121,16 +121,17 @@ in
                 ++ (l.optionals hasReadinessProbe [(nix2container.buildLayer {deps = [readinessProbe];})]);
             })
           ];
-          setup = prepend [users nss];
+          #setup = prepend [users nss];
           inherit extraSetupLinks;
-          options.copyToRoot = append [tmp caCertificates];
-          perms = prepend [
-            {
-              path = tmp;
-              regex = ".*";
-              mode = "0777";
-            }
-          ];
+          #options.copyToRoot = append [tmp caCertificates];
+          options.copyToRoot = append [caCertificates];
+          #perms = prepend [
+          #  {
+          #    path = tmp;
+          #    regex = ".*";
+          #    mode = "0777";
+          #  }
+          #];
           config.Env = append [
             # compatibility
             #  - openssl
