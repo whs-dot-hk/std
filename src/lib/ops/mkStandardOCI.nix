@@ -121,9 +121,9 @@ in
                 ++ (l.optionals hasReadinessProbe [(nix2container.buildLayer {deps = [readinessProbe];})]);
             })
           ];
-          setup = prepend [users nss caCertificates];
+          setup = prepend [users nss];
           inherit extraSetupLinks;
-          options.copyToRoot = append [tmp];
+          options.copyToRoot = append [tmp caCertificates];
           perms = prepend [
             {
               path = tmp;
